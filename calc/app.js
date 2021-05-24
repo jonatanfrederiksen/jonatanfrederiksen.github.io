@@ -24,7 +24,7 @@ const dot = document.getElementById('dot')
 const addNumToValues = (num) => {
     if (!values.firstVal && num == 0) { }
     else if (!values.firstVal) {
-        values.firstVal = num;
+        values.firstVal = num.toString();
         display.innerText = values.firstVal;
     }
     else if (values.firstVal && !values.activeFunc) {
@@ -33,7 +33,7 @@ const addNumToValues = (num) => {
     }
     else if (!values.secondVal && num == 0) { }
     else if (values.activeFunc && !values.secondVal) {
-        values.secondVal = num;
+        values.secondVal = num.toString();
         display.innerText = values.secondVal;
     }
     else {
