@@ -92,31 +92,35 @@ const resetSecNum = () => {
 
 
 // func functions
-// const del = () => {
-//     if (values.secondVal) {
-//         values.secondVal.slice(0, -1)
-//         display.innerText = values.secondVal;
-//     }
-//     else if (values.firstVal) {
-//         values.firstVal.slice(0, -1)
-//         display.innerText = values.firstVal;
-//     }
-// }
+const del = () => {
+    if (values.secondVal) {
+        values.secondVal.slice(0, -1)
+        display.innerText = values.secondVal;
+    }
+    else if (values.firstVal) {
+        values.firstVal.slice(0, -1)
+        display.innerText = values.firstVal;
+    }
+}
 
 const plus = () => {
     values.activeFunc = (a, b) => { return a + b; }
+    if (values.secondVal) { calc() }
 }
 
 const minus = () => {
     values.activeFunc = (a, b) => { return a - b }
+    if (values.secondVal) { calc() }
 }
 
 const divide = () => {
     values.activeFunc = (a, b) => { return a / b; }
+    if (values.secondVal) { calc() }
 }
 
 const multiply = () => {
     values.activeFunc = (a, b) => { return a * b; }
+    if (values.secondVal) { calc() }
 }
 
 const calc = () => {
@@ -139,7 +143,7 @@ const calcBtn = document.getElementById('calc')
 
 
 //func buttons eventlisteners
-// delBtn.addEventListener('click', del)
+delBtn.addEventListener('click', del)
 
 plusBtn.addEventListener('click', plus)
 plusBtn.addEventListener('click', resetSecNum)
