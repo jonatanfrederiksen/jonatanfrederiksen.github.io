@@ -1,8 +1,39 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 700;
+}
+
+#calculator{
+    width: 350px;
+    background-color: wheat;
+
+}
+
 #display{
-    width: 100px;
     background-color: whitesmoke;
     text-align: end;
     padding: 3px;
     margin: 3px;
 
+}
+
+#buttons{
+    width: 350px;
+    background-color: wheat;  
+    
+}
+
+button{
+    height: 35px;
+    margin: 2px;
+    font-family: 'Spartan', sans-serif;
+    background-color: hsl(30, 25%, 89%);
+}
+
+.small {
+    width: 50px;
 }
