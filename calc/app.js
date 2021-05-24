@@ -23,6 +23,7 @@ const dot = document.getElementById('dot')
 // add to values
 const addNumToValues = (num) => {
     if (!values.firstVal && num == 0) { }
+    else if (values.firstVal.includes(".") && num == "." && !values.activeFunc) { }
     else if (!values.firstVal) {
         values.firstVal = num.toString();
         display.innerText = values.firstVal;
@@ -32,6 +33,7 @@ const addNumToValues = (num) => {
         display.innerText = values.firstVal;
     }
     else if (!values.secondVal && num == 0) { }
+    else if (values.secondVal.includes(".") && num == ".") { }
     else if (values.activeFunc && !values.secondVal) {
         values.secondVal = num.toString();
         display.innerText = values.secondVal;
@@ -71,26 +73,7 @@ dot.addEventListener('click', pressDot)
 // look for keypresses.
 
 
-
-// func functions
-// const delete = () => {}
-
-const plus = () => {
-    values.activeFunc = (a, b) => { return a + b }
-}
-
-const minus = () => {
-    values.activeFunc = (a, b) => { return a - b }
-}
-
-const divide = () => {
-    values.activeFunc = (a, b) => { return a / b }
-}
-
-const multiply = () => {
-    values.activeFunc = (a, b) => { return a * b }
-}
-
+//reset functions
 const resetAll = () => {
     values.firstVal = "";
     values.secondVal = "";
@@ -103,11 +86,45 @@ const resetNum = () => {
     values.secondVal = "";
 }
 
+const resetSecNum = () => {
+    values.secondVal = "";
+}
+
+
+// func functions
+// const del = () => {
+//     if (values.secondVal) {
+//         values.secondVal.slice(0, -1)
+//         display.innerText = values.secondVal;
+//     }
+//     else if (values.firstVal) {
+//         values.firstVal.slice(0, -1)
+//         display.innerText = values.firstVal;
+//     }
+// }
+
+const plus = () => {
+    values.activeFunc = (a, b) => { return a + b; }
+}
+
+const minus = () => {
+    values.activeFunc = (a, b) => { return a - b }
+}
+
+const divide = () => {
+    values.activeFunc = (a, b) => { return a / b; }
+}
+
+const multiply = () => {
+    values.activeFunc = (a, b) => { return a * b; }
+}
+
 const calc = () => {
-    let val = values.activeFunc(parseInt(values.firstVal), parseInt(values.secondVal));
-    resetNum();
-    values.firstVal = val.toString();
-    display.innerText = val;
+    if (values.secondVal) {
+        let val = values.activeFunc(parseFloat(values.firstVal), parseFloat(values.secondVal));
+        values.firstVal = val.toString();
+        display.innerText = val;
+    }
 }
 
 
@@ -120,11 +137,22 @@ const multiplyBtn = document.getElementById('multiply')
 const resetBtn = document.getElementById('reset')
 const calcBtn = document.getElementById('calc')
 
+
 //func buttons eventlisteners
-// delBtn.addEventListener('click', f)
+// delBtn.addEventListener('click', del)
+
 plusBtn.addEventListener('click', plus)
+plusBtn.addEventListener('click', resetSecNum)
+
 minusBtn.addEventListener('click', minus)
+minusBtn.addEventListener('click', resetSecNum)
+
 divideBtn.addEventListener('click', divide)
+divideBtn.addEventListener('click', resetSecNum)
+
 multiplyBtn.addEventListener('click', multiply)
+multiplyBtn.addEventListener('click', resetSecNum)
+
 resetBtn.addEventListener('click', resetAll)
+
 calcBtn.addEventListener('click', calc)
