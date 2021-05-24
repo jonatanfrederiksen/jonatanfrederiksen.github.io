@@ -1,0 +1,204 @@
+html{
+    font-size: 15px;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(233, 47%, 7%);
+    box-sizing: border-box;
+
+}
+
+main{
+    width: 78vw;
+    height: auto;
+    background-color: hsl(244, 38%, 16%);
+    display: flex;
+    border-radius: 10px;
+}
+
+#content{
+    padding: 9vh 8vw 8vh 6vw;
+    /* padding-left: 6vw;
+    padding-right: 8vw; */
+    width: 25.5vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* #overlay{
+    width: 700px;
+    height: 400px;
+    background-color: hsla(277, 64%, 61%, 0.5);
+} */
+
+#img{
+    background-image: url(images/image-header-desktop.jpg);
+    width: 38vw;
+    height: auto;
+    box-shadow: inset 0 0 0 2000px hsla(277, 64%, 41%, 0.7);
+    border-radius: 0px 10px 10px 0px;
+}
+
+/* #image{
+    width: 700px;
+    height: 400px;
+    width: 100%;
+    height: auto;
+    background: url(images/image-header-desktop.jpg) ;
+} */
+
+/* heading */
+h1{
+    padding-bottom: 20px;
+    color: hsl(0, 0%, 100%);
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 2.2rem;
+}
+
+    /* heading highlight */
+    h1 span{
+        color: hsl(277, 64%, 61%);
+    }
+
+/* center text block */
+p{
+    color: hsla(0, 0%, 100%, 0.75);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    padding-bottom: 70px;
+}
+
+
+/* The three stats */
+.stats{
+    color: hsla(0, 0%, 100%, 0.75);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;;
+}
+
+    /* the numbers in the stats */
+    .statNum{
+        color: hsla(0, 0%, 100%, 0.9);
+        font-weight: 600;
+        display: block;
+        padding-bottom: 4px;
+        font-size: 1.5rem;
+    }
+
+    /* the text in the stats  */
+    .statDesc{
+        text-transform: initial;
+        text-transform: uppercase;
+        font-size: 10px;
+
+    }
+
+
+/* added by FrontendMentor */
+.attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+
+
+@media (max-width: 768px) {
+   body{height: auto;}
+   
+    main{
+        width: 86vw;  
+        flex-direction: column-reverse; 
+        margin: 6rem 0 4rem 0;
+    }
+
+     #img{
+        width: 86vw;
+        height: 63vw;
+        max-height: 300px;
+        background-image: url(images/image-header-mobile.jpg);
+        background-repeat: no-repeat;
+        border-radius: 10px 10px 0px 0px;
+        background-size: 86vw;
+
+    }
+
+    #content{
+        height: 57vh;
+        width: auto;    
+        text-align: center;
+        padding: 5vh 8vw 5vh 8vw;
+
+    }
+
+    h1{
+        font-size: 1.9rem;
+    }
+
+    p{
+        padding-bottom: 10px;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .stat{
+        padding: 1rem 0 1rem 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Very dark blue (main background): hsl(233, 47%, 7%)
+- Dark desaturated blue (card background): hsl(244, 38%, 16%)
+- Soft violet (accent): hsl(277, 64%, 61%)
+
+### Neutral
+
+- White (main heading, stats): hsl(0, 0%, 100%)
+- Slightly transparent white (main paragraph): hsla(0, 0%, 100%, 0.75)
+- Slightly transparent white (stat headings): hsla(0, 0%, 100%, 0.6)
+
+## Typography
+
+### Body Copy
+
+- Font size: 15px
+
+### Font
+
+- Family: [Inter](https://fonts.google.com/specimen/Inter)
+- Weights: 400, 700
+
+- Family: [Lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
+- Weights: 400 */
