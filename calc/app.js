@@ -1,11 +1,17 @@
 const values = {
     firstVal: "",
     secondVal: "",
+    calcSecond: "",
     activeFunc: ""
 }
 
 // top display
 const display = document.querySelector('#display')
+
+const updateDisplay = (num) => {
+    newValue = Number(parseFloat(num).toFixed(2)).toLocaleString('da');
+    display.innerText = newValue;
+}
 
 // number buttons 
 const zero = document.getElementById('0')
@@ -26,23 +32,32 @@ const addNumToValues = (num) => {
     else if (values.firstVal.includes(".") && num == "." && !values.activeFunc) { }
     else if (!values.firstVal) {
         values.firstVal = num.toString();
-        display.innerText = values.firstVal;
+        updateDisplay(values.firstVal);
     }
     else if (values.firstVal && !values.activeFunc) {
         values.firstVal = `${values.firstVal}${num}`;
-        display.innerText = values.firstVal;
+        updateDisplay(values.firstVal);
     }
     else if (!values.secondVal && num == 0) { }
     else if (values.secondVal.includes(".") && num == ".") { }
     else if (values.activeFunc && !values.secondVal) {
         values.secondVal = num.toString();
-        display.innerText = values.secondVal;
+        updateDisplay(values.secondVal);
     }
     else {
         values.secondVal = `${values.secondVal}${num}`;
-        display.innerText = values.secondVal;
+        updateDisplay(values.secondVal);
     }
 }
+
+//toggle active button state
+const removeToggle = (btn) => {
+    plusBtn.classList.remove("toggle");
+    minusBtn.classList.remove("toggle");
+    multiplyBtn.classList.remove("toggle");
+    divideBtn.classList.remove("toggle");
+}
+
 
 // pressing functions
 const pressZero = () => { addNumToValues(0) }
@@ -79,12 +94,13 @@ const resetAll = () => {
     values.secondVal = "";
     values.activeFunc = "";
     display.innerText = "0";
+    removeToggle();
 }
 
-const resetNum = () => {
-    values.firstVal = "";
-    values.secondVal = "";
-}
+// const resetNum = () => {
+//     values.firstVal = "";
+//     values.secondVal = "";
+// }
 
 const resetSecNum = () => {
     values.secondVal = "";
@@ -94,38 +110,50 @@ const resetSecNum = () => {
 // func functions
 const del = () => {
     if (values.secondVal) {
-        values.secondVal.slice(0, -1)
+        values.secondVal = values.secondVal.slice(0, -1);
         display.innerText = values.secondVal;
     }
     else if (values.firstVal) {
-        values.firstVal.slice(0, -1)
+        values.firstVal = values.firstVal.slice(0, -1);
         display.innerText = values.firstVal;
     }
 }
 
 const plus = () => {
-    values.activeFunc = (a, b) => { return a + b; }
-    if (values.secondVal) { calc() }
+    values.activeFunc = (a, b) => { return a + b; };
+    removeToggle();
+    plusBtn.classList.add('toggle')
+    if (values.secondVal) { calc() };
 }
 
 const minus = () => {
     values.activeFunc = (a, b) => { return a - b }
+    removeToggle();
+    minusBtn.classList.add('toggle')
     if (values.secondVal) { calc() }
 }
 
 const divide = () => {
     values.activeFunc = (a, b) => { return a / b; }
+    removeToggle();
+    divideBtn.classList.add('toggle')
     if (values.secondVal) { calc() }
 }
 
 const multiply = () => {
     values.activeFunc = (a, b) => { return a * b; }
+    removeToggle();
+    multiplyBtn.classList.add('toggle')
     if (values.secondVal) { calc() }
 }
 
 const calc = () => {
     if (values.secondVal) {
-        let val = values.activeFunc(parseFloat(values.firstVal), parseFloat(values.secondVal));
+        values.calcSecond = values.secondVal;
+        resetSecNum();
+    };
+    if (values.calcSecond) {
+        let val = values.activeFunc(parseFloat(values.firstVal), parseFloat(values.calcSecond));
         values.firstVal = val.toString();
         display.innerText = val;
     }
@@ -160,3 +188,29 @@ multiplyBtn.addEventListener('click', resetSecNum)
 resetBtn.addEventListener('click', resetAll)
 
 calcBtn.addEventListener('click', calc)
+
+
+
+const keys = document.querySelector('body');
+keys.addEventListener('keydown', function (e) {
+
+    if (e.key == "0") { pressZero() }
+    else if (e.key == "1") { pressOne() }
+    else if (e.key == "2") { pressTwo() }
+    else if (e.key == "3") { pressThree() }
+    else if (e.key == "4") { pressFour() }
+    else if (e.key == "5") { pressFive() }
+    else if (e.key == "6") { pressSix() }
+    else if (e.key == "7") { pressSeven() }
+    else if (e.key == "8") { pressEight() }
+    else if (e.key == "9") { pressNine() }
+    else if (e.key == ".") { pressDot() }
+    else if (e.key == ",") { pressDot() }
+    else if (e.key == "+") { plus() }
+    else if (e.key == "-") { minus() }
+    else if (e.key == "*") { multiply() }
+    else if (e.key == "/") { divide() }
+    else if (e.key == "Enter") { calc() }
+    else if (e.key == "Backspace") { del() }
+    else if (e.key == "c") { resetAll() }
+})

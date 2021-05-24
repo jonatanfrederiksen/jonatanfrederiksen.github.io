@@ -5,35 +5,223 @@ body{
     align-items: center;
     font-family: 'Spartan', sans-serif;
     font-weight: 700;
+    background-color: hsl(222, 26%, 31%);
+    font-size: 32px;
+    min-width: 600px;
 }
 
 #calculator{
-    width: 350px;
-    background-color: teal;
 
 }
 
+h1{
+    color: white;
+    padding-bottom: 40px;
+}
+
 #display{
-    background-color: whitesmoke;
+    background-color: hsl(224, 36%, 15%);
+    padding: 48px;
+    margin-bottom: 24px;
+    border-radius: 10px;
     text-align: end;
-    padding: 3px;
-    margin: 3px;
+    vertical-align: middle;
+    color: white;
+
 
 }
 
 #buttons{
-    width: 350px;
-    background-color: ;  
-    
+    background-color: hsl(223, 31%, 20%);
+    border-radius: 10px;
+    padding: 20px;
 }
 
-button{
-    height: 35px;
-    margin: 2px;
-    font-family: 'Spartan', sans-serif;
+.button{
+    border-radius: 10px;
+    margin: 12px ;
+    border: none;
+    font-size: inherit;
+    font-weight: 700;
+    transition: background-color,  0.2s, box-shadow, 0.2s;
+}
+
+.small{
+    width: 101px;
+    height: 60px;
+}
+
+.big{
+    width: 235px;
+    height: 60px;
+}
+
+.white{
     background-color: hsl(30, 25%, 89%);
+    box-shadow: 0px 5px 0px -1px hsl(28, 16%, 65%);
+    color: hsl(223, 31%, 20%);
 }
 
-.small {
-    width: 50px;
+.white:hover{
+    background-color: hsl(30, 25%, 93%);
+    box-shadow: 0px 5px 0px -1px hsl(28, 16%, 69%);
 }
+
+.white + .toggle{
+    color: hsl(6, 63%, 50%);
+}
+
+.blue{
+    background-color: hsl(225, 21%, 49%);
+    box-shadow: 0px 5px 0px -1px hsl(224, 28%, 35%);
+    text-transform: uppercase;
+    color: hsl(0, 0%, 100%);
+    font-size: 22px;
+}
+
+.blue:hover{
+    background-color: hsl(225, 21%, 53%);
+    box-shadow: 0px 5px 0px -1px hsl(224, 28%, 39%);
+}
+
+
+.red{
+    background-color: hsl(6, 63%, 50%);
+    box-shadow: 0px 5px 0px -1px hsl(6, 70%, 34%);
+    text-transform: uppercase;
+    color: hsl(0, 0%, 100%);
+    font-size: 22px;
+}
+
+.red:hover{
+    background-color: hsl(6, 63%, 54%);
+    box-shadow: 0px 5px 0px -1px hsl(6, 70%, 38%);
+}
+
+
+
+.theme1{
+/* backgrounds */
+color: hsl(222, 26%, 31%);
+color: hsl(223, 31%, 20%);
+color: hsl(224, 36%, 15%);
+
+/* Keys */
+color: hsl(225, 21%, 49%);
+color: hsl(224, 28%, 35%);
+
+color: hsl(6, 63%, 50%);
+color: hsl(6, 70%, 34%);
+
+color: hsl(30, 25%, 89%);
+color: hsl(28, 16%, 65%);
+
+/* text */
+color: hsl(221, 14%, 31%);
+color: hsl(0, 0, 100%);
+}
+
+
+
+
+
+
+
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Theme 1
+
+#### Backgrounds
+
+- Very dark desaturated blue (main background): hsl(222, 26%, 31%)
+- Very dark desaturated blue (toggle background, keypad background): hsl(223, 31%, 20%)
+- Very dark desaturated blue (screen background): hsl(224, 36%, 15%)
+
+#### Keys
+
+- Desaturated dark blue (key background): hsl(225, 21%, 49%)
+- Desaturated dark blue (key shadow): hsl(224, 28%, 35%)
+
+- Red (key background, toggle): hsl(6, 63%, 50%)
+- Dark red (key shadow): hsl(6, 70%, 34%)
+
+- Light grayish orange (key background): hsl(30, 25%, 89%)
+- Grayish orange (key shadow): hsl(28, 16%, 65%)
+
+#### Text
+
+- Very dark grayish blue: hsl(221, 14%, 31%)
+- White: hsl(0, 0, 100%)
+
+
+
+### Theme 2
+
+#### Backgrounds
+
+- Light gray (main background): hsl(0, 0%, 90%)
+- Grayish red (toggle background, keypad background): hsl(0, 5%, 81%)
+- Very light gray (screen background): hsl(0, 0%, 93%)
+
+#### Keys
+
+- Dark moderate cyan (key background): hsl(185, 42%, 37%)
+- Very dark cyan (key shadow): hsl(185, 58%, 25%)
+
+- Orange (key background, toggle): hsl(25, 98%, 40%)
+- Dark orange (key shadow): hsl(25, 99%, 27%)
+
+- Light grayish yellow (key background): hsl(45, 7%, 89%)
+- Dark grayish orange (key shadow): hsl(35, 11%, 61%)
+
+#### Text
+
+- Very dark grayish yellow: hsl(60, 10%, 19%)
+- White (text): hsl(0, 0, 100%)
+
+
+
+
+### Theme 3
+
+#### Backgrounds
+
+- Very dark violet (main background): hsl(268, 75%, 9%)
+- Very dark violet (toggle background, keypad background, screen background): hsl(268, 71%, 12%)
+
+#### Keys
+
+- Dark violet (key background): hsl(281, 89%, 26%)
+- Vivid magenta (key shadow): hsl(285, 91%, 52%)
+
+- Pure cyan (key background, toggle): hsl(176, 100%, 44%)
+- Soft cyan (key shadow): hsl(177, 92%, 70%)
+
+- Very dark violet (key background): hsl(268, 47%, 21%)
+- Dark magenta (key shadow): hsl(290, 70%, 36%)
+
+#### Text
+
+- Light yellow: hsl(52, 100%, 62%)
+- Very dark blue: hsl(198, 20%, 13%)
+- White (text): hsl(0, 0, 100%)
+
+## Typography
+
+### Body Copy
+
+- Font size (numbers): 32px
+
+### Font
+
+- Family: [Spartan](https://fonts.google.com/specimen/Spartan)
+- Weights: 700
