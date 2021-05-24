@@ -1,0 +1,128 @@
+html{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 18px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: hsl(185, 75%, 39%);
+    background-image: url(images/bg-pattern-top.svg), url(images/bg-pattern-bottom.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: -20vw -50vh, 50vw 50vh;
+}
+.card{
+    height: 375px;
+    width: 350px;
+    background: white;
+    border-radius: 20px;
+}
+
+.image{
+    border-radius: 20px 20px 0 0;
+}
+
+.profileImg{
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+.content{
+    position: relative;
+    bottom: 57px;
+}
+
+.nameLine{
+   margin: 10px 0;
+    font-size: 1rem;
+}
+
+#name{
+    font-weight: 700;
+    font-size: 1rem;
+    color: hsl(229, 23%, 23%);
+}
+
+#age{
+    color: hsl(0, 0%, 59%);
+}
+
+#city{
+    margin: 12px 0;
+    font-size: 0.8rem;
+    display: block;
+    color: hsl(0, 0%, 59%);
+}
+
+.line{
+    height: 1px;
+    width: 100%;
+    background-color: hsla(0, 0%, 59%, 0.2);
+    margin: 20px 0;
+}
+
+.num{
+    font-size: 1rem;
+    font-weight: 700;
+    color: hsl(229, 23%, 23%);
+}
+
+#stats{
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0;
+}
+
+#stats div{
+    display: flex;
+    flex-direction: column;
+    margin
+}
+
+.stat{
+    margin-top: 5px;
+    font-size: 0.6rem;
+    color: hsl(0, 0%, 59%);
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+
+
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+Dark cyan: hsl(185, 75%, 39%)
+Very dark desaturated blue: hsl(229, 23%, 23%)
+Dark grayish blue: hsl(227, 10%, 46%)
+
+### Neutral
+
+Dark gray: hsl(0, 0%, 59%)
+
+## Typography
+
+### Body Copy
+
+- Font size (name and stats): 18px
+
+### Font
+
+- Family: [Kumbh Sans](https://fonts.google.com/specimen/Kumbh+Sans)
+- Weights: 400, 700
