@@ -8,6 +8,13 @@ const values = {
 // top display
 const display = document.querySelector('#display')
 
+
+
+//display updates
+const addToDisplay = (a) => {
+    display.innerText = `${display.innerText},`;
+}
+
 const updateDisplay = (num) => {
     newValue = Number(parseFloat(num).toFixed(2)).toLocaleString('da');
     display.innerText = newValue;
@@ -29,7 +36,6 @@ const dot = document.getElementById('dot')
 // add to values
 const addNumToValues = (num) => {
     if (!values.firstVal && num == 0) { }
-    else if (values.firstVal.includes(".") && num == "." && !values.activeFunc) { }
     else if (!values.firstVal) {
         values.firstVal = num.toString();
         updateDisplay(values.firstVal);
@@ -39,7 +45,6 @@ const addNumToValues = (num) => {
         updateDisplay(values.firstVal);
     }
     else if (!values.secondVal && num == 0) { }
-    else if (values.secondVal.includes(".") && num == ".") { }
     else if (values.activeFunc && !values.secondVal) {
         values.secondVal = num.toString();
         updateDisplay(values.secondVal);
@@ -50,7 +55,8 @@ const addNumToValues = (num) => {
     }
 }
 
-//toggle active button state
+
+//remove active button state
 const removeToggle = (btn) => {
     plusBtn.classList.remove("toggle");
     minusBtn.classList.remove("toggle");
@@ -70,7 +76,19 @@ const pressSix = () => { addNumToValues(6) }
 const pressSeven = () => { addNumToValues(7) }
 const pressEight = () => { addNumToValues(8) }
 const pressNine = () => { addNumToValues(9) }
-const pressDot = () => { addNumToValues('.') }
+
+const pressDot = () => {
+    if (values.firstVal.includes(".") && !values.activeFunc) { }
+    else if (!values.activeFunc) {
+        values.firstVal = `${values.firstVal}.`;
+        addToDisplay(".")
+    }
+    else if (values.secondVal.includes(".")) { }
+    else if (values.activeFunc) {
+        values.secondVal = `${values.secondVal}.`;
+        addToDisplay(".")
+    }
+}
 
 // number eventlisteners
 zero.addEventListener('click', pressZero)
@@ -93,14 +111,9 @@ const resetAll = () => {
     values.firstVal = "";
     values.secondVal = "";
     values.activeFunc = "";
-    display.innerText = "0";
+    updateDisplay(0);;
     removeToggle();
 }
-
-// const resetNum = () => {
-//     values.firstVal = "";
-//     values.secondVal = "";
-// }
 
 const resetSecNum = () => {
     values.secondVal = "";
@@ -109,13 +122,21 @@ const resetSecNum = () => {
 
 // func functions
 const del = () => {
-    if (values.secondVal) {
+    if (values.secondVal.length == 1) {
+        values.secondVal = "0";
+        updateDisplay(values.secondVal);
+    }
+    else if (values.secondVal) {
         values.secondVal = values.secondVal.slice(0, -1);
-        display.innerText = values.secondVal;
+        updateDisplay(values.secondVal);
+    }
+    if (values.firstVal.length == 1) {
+        values.firstVal = "0";
+        updateDisplay(values.firstVal);
     }
     else if (values.firstVal) {
         values.firstVal = values.firstVal.slice(0, -1);
-        display.innerText = values.firstVal;
+        updateDisplay(values.firstVal);
     }
 }
 
@@ -155,7 +176,7 @@ const calc = () => {
     if (values.calcSecond) {
         let val = values.activeFunc(parseFloat(values.firstVal), parseFloat(values.calcSecond));
         values.firstVal = val.toString();
-        display.innerText = val;
+        updateDisplay(val);
     }
 }
 
