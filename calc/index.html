@@ -16,16 +16,26 @@
 
     <div id="calculator">
 
-        <div>
+        <header>
             <h1>calc</h1>
+            <div id="themeSection">
+                <div id="themeHeading">theme</div>
+                <div>
+                    <div id="themeLabels">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
 
-            <div id="themePicker">
-                <!-- <input type="radio" name="theme" id="">
-                <input type="radio" name="theme" id="">
-                <input type="radio" name="theme" id=""> -->
+                    <div id="themePicker">
+                        <button class="themePick" id="themeOne"></button>
+                        <button class="themePick" id="themeTwo"></button>
+                        <button class="themePick" id="themeThree"></button>
+                    </div>
+                </div>
             </div>
 
-        </div>
+        </header>
 
         <div id="display">
             0
@@ -72,6 +82,7 @@
     </div>
 
     <script src="app.js"></script>
+    <script src="colors.js"></script>
 </body>
 
 </html>

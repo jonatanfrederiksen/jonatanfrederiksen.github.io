@@ -5,42 +5,73 @@ body{
     align-items: center;
     font-family: 'Spartan', sans-serif;
     font-weight: 700;
-    background-color: hsl(222, 26%, 31%);
     font-size: 32px;
     flex-direction: column;
+    transition: all 0.15s;
 }
 
-#calculator{
-
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    margin-bottom: 20px;
 }
 
-h1{
-    color: white;
-    padding-bottom: 40px;
+#themeSection{
+    display: flex;
+    flex-direction: row;
 }
 
-.themePicker{
-    display: inline-block;
-    width: 30px;
-    height: 10px;
-    background: white;
-    border-radius: 20px;
+#themeHeading{
+    font-size: 15px;
+    margin-top: 20px;
+    margin-right: 20px;
+    align-self: center;
+    text-transform: uppercase;
+}
+
+
+#themeLabels{
+    height: 26px;
+    width: 71px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 13px;
+}
+
+#themePicker{
+    height: 26px;
+    width: 71px;
+    border-radius: 15px;
+    background-color: hsl(0, 0%, 100%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.themePick{
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 0;
+    background-color: hsla(0, 0%, 100%, 0);
 }
 
 #display{
-    background-color: hsl(224, 36%, 15%);
+    /* background-color: hsl(224, 36%, 15%); */
     padding: 48px;
     margin-bottom: 24px;
     border-radius: 10px;
     text-align: end;
     vertical-align: middle;
-    color: white;
-
-
 }
 
 #buttons{
-    background-color: hsl(223, 31%, 20%);
+    /* background-color: hsl(223, 31%, 20%); */
     border-radius: 10px;
     padding: 20px;
     display: flow;
@@ -75,45 +106,45 @@ h1{
 }
 
 .white{
-    background-color: hsl(30, 25%, 89%);
-    box-shadow: 0px 5px 0px -1px hsl(28, 16%, 65%);
-    color: hsl(223, 31%, 20%);
+    /* background-color: hsl(30, 25%, 89%); */
+    /* box-shadow: 0px 5px 0px -1px hsl(28, 16%, 65%); */
+    /* color: hsl(223, 31%, 20%); */
 }
 
 .white:hover{
-    background-color: hsl(30, 25%, 93%);
-    box-shadow: 0px 5px 0px -1px hsl(28, 16%, 69%);
+    /* background-color: hsl(30, 25%, 93%);
+    box-shadow: 0px 5px 0px -1px hsl(28, 16%, 69%); */
 }
 
 .white + .toggle{
-    color: hsl(6, 63%, 50%);
+    /* color: hsl(6, 63%, 50%); */
 }
 
 .blue{
-    background-color: hsl(225, 21%, 49%);
-    box-shadow: 0px 5px 0px -1px hsl(224, 28%, 35%);
+    /* background-color: hsl(225, 21%, 49%);
+    box-shadow: 0px 5px 0px -1px hsl(224, 28%, 35%); */
     text-transform: uppercase;
-    color: hsl(0, 0%, 100%);
+    /* color: hsl(0, 0%, 100%); */
     font-size: 22px;
 }
 
 .blue:hover{
-    background-color: hsl(225, 21%, 53%);
-    box-shadow: 0px 5px 0px -1px hsl(224, 28%, 39%);
+    /* background-color: hsl(225, 21%, 53%);
+    box-shadow: 0px 5px 0px -1px hsl(224, 28%, 39%); */
 }
 
 
 .red{
-    background-color: hsl(6, 63%, 50%);
-    box-shadow: 0px 5px 0px -1px hsl(6, 70%, 34%);
+    /* background-color: hsl(6, 63%, 50%);
+    box-shadow: 0px 5px 0px -1px hsl(6, 70%, 34%); */
     text-transform: uppercase;
-    color: hsl(0, 0%, 100%);
+    /* color: hsl(0, 0%, 100%); */
     font-size: 22px;
 }
 
 .red:hover{
-    background-color: hsl(6, 63%, 54%);
-    box-shadow: 0px 5px 0px -1px hsl(6, 70%, 38%);
+    /* background-color: hsl(6, 63%, 54%);
+    box-shadow: 0px 5px 0px -1px hsl(6, 70%, 38%); */
 }
 
 
@@ -221,13 +252,14 @@ The designs were created to the following widths:
 
 #### Backgrounds
 
-- Very dark desaturated blue (main background): hsl(222, 26%, 31%)
-- Very dark desaturated blue (toggle background, keypad background): hsl(223, 31%, 20%)
-- Very dark desaturated blue (screen background): hsl(224, 36%, 15%)
+html[data-theme="theme1"] {
+    /* background colors */
+    main background: hsl(222, 26%, 31%);
+    keypad background: hsl(223, 31%, 20%);
+    screen background: hsl(224, 36%, 15%);
 
-#### Keys
-
-- Desaturated dark blue (key background): hsl(225, 21%, 49%)
+    /* Keys */
+    key background: hsl(225, 21%, 49%)
 - Desaturated dark blue (key shadow): hsl(224, 28%, 35%)
 
 - Red (key background, toggle): hsl(6, 63%, 50%)
