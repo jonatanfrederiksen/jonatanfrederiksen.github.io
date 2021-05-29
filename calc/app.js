@@ -140,11 +140,23 @@ const del = () => {
     }
 }
 
+const colorHighlight = (btnToChange) => {
+    let btns = ['plus', 'minus', 'divide', 'multiply']
+    let btn = btns.splice(btns.indexOf(btnToChange), 1).toString();
+    document.querySelector(`#${btn}`).classList.add('buttonHighlight')
+    for (btn of btns) {
+        document.querySelector(`#${btn}`).classList.remove('buttonHighlight')
+
+    }
+}
+
+
 const plus = () => {
     values.activeFunc = (a, b) => { return a + b; };
     removeToggle();
     plusBtn.classList.add('toggle')
     if (values.secondVal) { calc() };
+    colorHighlight('plus')
 }
 
 const minus = () => {
@@ -152,6 +164,7 @@ const minus = () => {
     removeToggle();
     minusBtn.classList.add('toggle')
     if (values.secondVal) { calc() }
+    colorHighlight('minus')
 }
 
 const divide = () => {
@@ -159,6 +172,7 @@ const divide = () => {
     removeToggle();
     divideBtn.classList.add('toggle')
     if (values.secondVal) { calc() }
+    colorHighlight('divide')
 }
 
 const multiply = () => {
@@ -166,6 +180,7 @@ const multiply = () => {
     removeToggle();
     multiplyBtn.classList.add('toggle')
     if (values.secondVal) { calc() }
+    colorHighlight('multiply')
 }
 
 const calc = () => {

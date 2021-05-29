@@ -1,16 +1,5 @@
-// const mainBg = document.querySelector('body').style
-// const keypadBg = document.querySelector('body').style
-// const screenBg = document.querySelector('body').style
-// const keyBgBlue = document.querySelector('body').style
-// const keyShadow = document.querySelector('body').style
-// const keyBgRed = document.querySelector('body').style
-// const keyShadowToggle = document.querySelector('body').style
-// const keyBgMain = document.querySelector('body').style
-// const keyShadowMain = document.querySelector('body').style
-// const textBlue = document.querySelector('body').style
-// const textWhite = document.querySelector('body').style
-
-
+// let highlightColor = "";
+// let nonHighlightColor "";
 
 const theme = (themeNo) => {
     switch (themeNo) {
@@ -23,6 +12,7 @@ const theme = (themeNo) => {
             var keyBgBlue = 'hsl(225, 21%, 49%)';
             var keyShadowBlue = '0px 5px 0px 0px hsl(224, 28%, 35%)';
             var keyBgRed = 'hsl(6, 63%, 50%)';
+            // highlightColor = keyBgRed;
             var keyShadowToggle = '0px 5px 0px 0px hsl(6, 70%, 34%)';
             var keyBgMain = 'hsl(30, 25%, 89%)';
             var keyShadowMain = '0px 5px 0px 0px hsl(28, 16%, 65%)';
@@ -44,6 +34,7 @@ const theme = (themeNo) => {
             var keyBgBlue = 'hsl(185, 42%, 37%)';
             var keyShadowBlue = '0px 5px 0px 0px hsl(185, 58%, 25%)';
             var keyBgRed = 'hsl(25, 98%, 40%)';
+            highlightColor = keyBgRed;
             var keyShadowToggle = '0px 5px 0px 0px hsl(25, 99%, 27%)';
             var keyBgMain = 'hsl(45, 7%, 89%)';
             var keyShadowMain = '0px 5px 0px 0px hsl(35, 11%, 61%)';
@@ -65,6 +56,7 @@ const theme = (themeNo) => {
             var keyBgBlue = 'hsl(281, 89%, 26%)';
             var keyShadowBlue = '0px 5px 0px 0px hsl(285, 91%, 52%)';
             var keyBgRed = 'hsl(176, 100%, 44%)';
+            highlightColor = keyBgRed;
             var keyShadowToggle = '0px 5px 0px 0px hsl(177, 92%, 70%)';
             var keyBgMain = 'hsl(268, 47%, 21%)';
             var keyShadowMain = '0px 5px 0px 0px hsl(290, 70%, 36%)';
