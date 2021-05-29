@@ -160,16 +160,16 @@ const startInterval = () => {
 const quitInterval = () => { clearInterval(intervalId) }
 
 const randPiece = () => {
-    const type = Math.floor(Math.random() * 7)
-    nextPiece = pieces[type].position
+    nextPiece = JSON.parse(JSON.stringify(pieces[Math.floor(Math.random() * 7)].position.slice(0)));
 }
 
-const newPiece = function (piece = pieces[3].position) {
+const newPiece = function (piece = nextPiece) {
     for (box of piece) {
         console.log(`newPos: y: ${this.box.y}, x: ${this.box.x}`)
         activePos.push(this.box)
         document.querySelector(`#y${this.box.y}x${this.box.x}`).style.backgroundColor = 'green';
     };
+    round++;
     startInterval();
 }
 
@@ -178,7 +178,9 @@ const solidifyPieces = (piece = activePos) => {
         document.querySelector(`#y${this.box.y}x${this.box.x}`).style.backgroundColor = "";
         document.querySelector(`#y${this.box.y}x${this.box.x}`).classList.add('filled');
     }
+    quitInterval();
     activePos = [];
+    randPiece();
 }
 
 const moveDown = (piece = activePos) => {
@@ -220,12 +222,21 @@ const moveDownAuto = (piece = activePos) => {
             document.querySelector(`#y${this.box.y}x${this.box.x}`).style.backgroundColor = 'green';
         }
     }
+    else if (!validate) { newPiece() }
 }
+
+
+const moveDownComplete = () => {
+    while (activePos) {
+        moveDownAuto()
+    }
+}
+
 
 const moveLeft = (piece = activePos) => {
     let validate = true
     for (box of piece) {
-        if (parseInt(this.box.x) <= 0) {
+        if (parseInt(this.box.x) <= 0 || document.querySelector(`#y${this.box.y}x${parseInt(this.box.x) - 1}`).classList.contains('filled')) {
             validate = false
         }
     }
@@ -245,7 +256,7 @@ const moveLeft = (piece = activePos) => {
 const moveRight = (piece = activePos) => {
     let validate = true
     for (box of piece) {
-        if (parseInt(this.box.x) >= 9) {
+        if (parseInt(this.box.x) >= 9 || document.querySelector(`#y${this.box.y}x${parseInt(this.box.x) + 1}`).classList.contains('filled')) {
             validate = false
         }
     }
