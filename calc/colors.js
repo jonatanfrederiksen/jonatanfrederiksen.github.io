@@ -82,6 +82,7 @@ const theme = (themeNo) => {
         white.style.backgroundColor = keyBgMain;
         white.style.boxShadow = keyShadowMain;
         white.style.color = textBlue;
+        document.querySelectorAll('.high')
     }
         let blues = document.querySelectorAll('.blue')
         for (blue of blues) {
