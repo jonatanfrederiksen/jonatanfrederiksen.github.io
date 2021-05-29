@@ -7,12 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetris</title>
     <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <div class="header">
+        <h1>TETRIS</h1>
+        <p>let the fun begin</p>
+    </div>
+
+
     <div id="game">
+        <div class="hidden">
+            <div id="y-1x0" class="hidden gameOverCheck"></div>
+            <div id="y-1x1" class="hidden gameOverCheck"></div>
+            <div id="y-1x2" class="hidden gameOverCheck"></div>
+            <div id="y-1x3" class="hidden gameOverCheck"></div>
+            <div id="y-1x4" class="hidden gameOverCheck"></div>
+            <div id="y-1x5" class="hidden gameOverCheck"></div>
+            <div id="y-1x6" class="hidden gameOverCheck"></div>
+            <div id="y-1x7" class="hidden gameOverCheck"></div>
+            <div id="y-1x8" class="hidden gameOverCheck"></div>
+            <div id="y-1x9" class="hidden gameOverCheck"></div>
+        </div>
         <div class="row">
             <div id="y0x0" class="box"></div>
             <div id="y0x1" class="box"></div>
@@ -269,7 +290,24 @@
         </div>
     </div>
 
-    <button>start</button>
+    <div id="controls">
+        <div id="arrows">
+            <div>
+                <button id="upBtn" class="arrowBtn">&#8593; </button>
+            </div>
+            <div>
+                <button id="leftBtn" class="arrowBtn">&#8592;</button>
+                <button id="downBtn" class="arrowBtn">&#8595;</button>
+                <button id="rightBtn" class="arrowBtn">&#8594; </button>
+            </div>
+        </div>
+
+
+        <button id="startBtn">start</button>
+
+    </div>
+
+
 
     <script src="app.js"></script>
 </body>

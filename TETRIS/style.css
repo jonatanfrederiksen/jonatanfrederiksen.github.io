@@ -1,10 +1,26 @@
 body{
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     align-content: center;
     height: 100vh;
+    text-align: center;
+    justify-content: space-evenly;
 }
+
+.header{
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+h1{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 40px;
+
+}
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+
 
 #game{
     align-self: center;
@@ -12,6 +28,10 @@ body{
     flex-direction: column;
     border: 20px solid black;
     border-radius: 10px;
+}
+
+#controls {
+    align-self: center;
 }
 
 .row{
@@ -38,4 +58,20 @@ body{
 
 .filled{
     background-color: red;
+}
+
+.arrowBtn{
+    width: 50px;
+    height: 50px;
+}
+
+.hidden {
+    display: none;
+    height: 0px;
+}
+
+@media (max-width: 640px) {
+    body {
+        flex-direction: column;
+    }
 }
