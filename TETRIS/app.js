@@ -149,7 +149,7 @@ let activePos = []
 let nextPiece = {};
 let intervalId = ""
 let round = 0;
-let gameOver = true
+let gameOver = false
 let interval = 0
 let currentColor = 'green'
 
@@ -171,15 +171,29 @@ const randPiece = () => {
 }
 
 const newPiece = function (piece = nextPiece.position) {
-    for (box of piece) {
-        console.log(`newPos: y: ${this.box.y}, x: ${this.box.x}`)
-        activePos.push(this.box)
-        document.querySelector(`#y${this.box.y}x${this.box.x}`).style.backgroundColor = activePos.color;
-    };
-    currentColor = nextPiece.color;
-    round++;
-    startInterval();
+    isGameOver()
+    if (!gameOver) {
+        for (box of piece) {
+            console.log(`newPos: y: ${this.box.y}, x: ${this.box.x}`)
+            activePos.push(this.box)
+            document.querySelector(`#y${this.box.y}x${this.box.x}`).style.backgroundColor = activePos.color;
+        };
+        currentColor = nextPiece.color;
+        round++;
+        startInterval();
+    }
 }
+
+const isGameOver = () => {
+    let gameOverCheck = document.querySelectorAll('.gameOverCheck')
+    for (box of gameOverCheck) {
+        if (box.classList.contains('filled')) {
+            gameover = true;
+            console.log('game is over');
+        }
+    }
+}
+
 
 const solidifyPieces = (piece = activePos) => {
     for (box of piece) {
@@ -188,10 +202,9 @@ const solidifyPieces = (piece = activePos) => {
     }
     quitInterval();
     activePos = [];
+    isGameOver();
     randPiece();
-    let gameOverCheck = document.querySelectorAll('.gameOverCheck')
 }
-
 
 // const startGame
 
@@ -314,7 +327,7 @@ const leftBtn = document.querySelector('#leftBtn');
 leftBtn.addEventListener('click', moveLeft)
 
 const downBtn = document.querySelector('#downBtn');
-downBtn.addEventListener('click', moveDown)
+downBtn.addEventListener('click', function () { moveDown() })
 
 const rightBtn = document.querySelector('#rightBtn');
 rightBtn.addEventListener('click', moveRight)

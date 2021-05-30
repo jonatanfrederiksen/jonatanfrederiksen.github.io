@@ -35,8 +35,8 @@ p{
 }
 
 .row{
-    height: 22px;
-    width: 220px;
+    /* height: 22px;
+    width: 220px; */
     display: flex;
     flex-direction: row;
 }
@@ -73,7 +73,22 @@ p{
 }
 
 @media (max-width: 640px) {
+    .header{
+        display: none;
+    }
+    
     body {
         flex-direction: column;
+    }
+
+    .box{
+        width: 3vh;
+        height: 3vh;
+    }
+
+    .arrowBtn{
+        height: 5vh;
+        width: 5vh;
+        border-radius: 0.5vh;
     }
 }
