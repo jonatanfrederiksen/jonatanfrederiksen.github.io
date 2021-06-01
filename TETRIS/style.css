@@ -5,7 +5,7 @@ body{
     height: 100vh;
     text-align: center;
     justify-content: space-evenly;
-    touch-action: manipulation;
+    touch-action: none;
 }
 
 .header{
