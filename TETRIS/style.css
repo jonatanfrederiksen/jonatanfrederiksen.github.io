@@ -46,6 +46,7 @@ h2{
     text-transform: uppercase;
     color: white;
     margin-top: 1px;
+    font-weight: 100;
 }
 
 .stat{
@@ -55,12 +56,21 @@ h2{
     color: white;
     border: 1px solid white;
     font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
 }
 
 #level{
-text-align: center;
-vertical-align: middle;
+display: flex;
+flex-direction: row;
+justify-content: center ;
 }
+
+#level span{
+    align-self: center;
+    font-size: 25px;
+}
+
+
 
 #hold{
     display: flex;
@@ -79,6 +89,27 @@ vertical-align: middle;
 .holdBox{
     width: 25%;
 }
+
+
+
+#upNext{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    overflow: hidden;
+}
+
+.upNextRow{  
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+}
+
+.upNextBox{
+    width: 25%;
+}
+
 
 
 
@@ -109,10 +140,6 @@ vertical-align: middle;
     flex-direction: row;
 }
 
-/* .box + .hidden {
-    background-color: whitesmoke;
-} */
-
 .box{
     height: 20px;
     width: 20px;
@@ -133,12 +160,31 @@ vertical-align: middle;
     height: 50px;
     margin: 3px 1px;
     border-radius: 10px;
+    background-color: black;
+    color: white;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.51)    ;
+
 }
 
 .hidden {
     display: none;
     height: 0px;
 }
+
+/* @media (min-width: 1000px){
+    #stats{
+        flex-direction: row;
+        width: 25%;
+        justify-content: space-evenly;
+
+
+    }
+    /* .statContainer{
+        margin-left: 5px;
+        margin-right: 5px;
+    } */
+
+} */
 
 @media (max-width: 640px) {
     .header{
@@ -149,8 +195,8 @@ vertical-align: middle;
     }
 
     .box{
-        width: 3vh;
-        height: 3vh;
+        width: 2vh;
+        height: 2vh;
     }
 
     .arrowBtn{
@@ -159,3 +205,4 @@ vertical-align: middle;
         border-radius: 0.5vh;
     }
 }
+

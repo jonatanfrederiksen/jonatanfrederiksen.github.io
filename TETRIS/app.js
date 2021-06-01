@@ -37,7 +37,9 @@ const pieces = [
                 x: "4"
             }]
         ],
-        color: '#FFE0FF'
+        color: '#FFE0FF',
+        img: "url('img/I.png')"
+
     },
     {
         name: 'J',
@@ -113,7 +115,8 @@ const pieces = [
                 x: "4"
             }]
         ],
-        color: '#D3FFFD'
+        color: '#D3FFFD',
+        img: "url('img/J.png')"
     },
     {
         name: 'L',
@@ -189,7 +192,8 @@ const pieces = [
                 x: "5"
             }]
         ],
-        color: '#FFC78E'
+        color: '#FFC78E',
+        img: "url('img/L.png')"
     },
     {
         name: 'O',
@@ -211,7 +215,8 @@ const pieces = [
                 x: "5"
             }]
         ],
-        color: '#FEFFB2'
+        color: '#FEFFB2',
+        img: "url('img/O.png')"
     },
     {
         name: 'S',
@@ -251,7 +256,8 @@ const pieces = [
                 x: "6"
             }],
         ],
-        color: '#CAFFC9'
+        color: '#CAFFC9',
+        img: "url('img/S.png')"
     },
     {
         name: 'T',
@@ -328,7 +334,8 @@ const pieces = [
             }]
 
         ],
-        color: '#D8D7FF'
+        color: '#D8D7FF',
+        img: "url('img/T.png')"
     },
     {
         name: 'Z',
@@ -369,7 +376,8 @@ const pieces = [
             }]
 
         ],
-        color: '#FFB0B1'
+        color: '#FFB0B1',
+        img: "url('img/Z.png')"
     }
 ]
 
@@ -378,11 +386,22 @@ const pieces = [
 
 let activePos = [];
 let nextPiece = {};
+let currentPiece = {};
+
+let pieceToHold = {};
+let heldPiece = {};
+let firstHold = true;
+let allowHold = true;
+
 let intervalId = "";
 let round = 0;
+let level = 0;
+
+const levelDisp = document.querySelector('#level span')
 let gameOver = false;
-let interval = 0;
-let currentColor = 'green';
+
+// let interval = 0;
+// let currentColor = 'green';
 let activeRotationCount = "";
 
 
@@ -479,6 +498,42 @@ const moveRightNew = () => {
     }
 }
 
+const holdPiece = () => {
+    if (allowHold) {
+        let removeFrom = document.querySelectorAll('.active')
+        if (removeFrom[0]) {
+            for (box of removeFrom) {
+                box.style.backgroundColor = '';
+                box.classList.remove('active')
+            }
+        }
+
+        if (!firstHold) {
+            heldPiece = JSON.parse(JSON.stringify(pieceToHold));
+        }
+        pieceToHold = JSON.parse(JSON.stringify(currentPiece));
+        document.querySelector('#hold').style.backgroundImage = pieceToHold.img;
+
+        if (!firstHold) {
+            newPieceNew(heldPiece)
+
+        }
+        else {
+            newPieceNew()
+        }
+        firstHold = false;
+        allowHold = false;
+
+    }
+}
+
+
+
+
+
+// }
+
+
 
 // automatic functions
 
@@ -497,8 +552,16 @@ const newPieceNew = (masterPiece = nextPiece) => {
         currentColor = masterPiece.color;
     }
     round++;
+    currentPiece = JSON.parse(JSON.stringify(nextPiece));
+    randPiece();
+    displayUpNext();
     startInterval()
 }
+
+const displayUpNext = () => {
+    document.querySelector('#upNext').style.backgroundImage = nextPiece.img
+}
+
 
 const printOnScreen = (pieces = activePos) => {
     let removeFrom = document.querySelectorAll('.active')
@@ -540,12 +603,10 @@ const solidifyPiecesNew = () => {
             box.classList.add('filled')
         }
     }
-
     quitInterval();
     activePos = [];
+    allowHold = true;
     clearLines();
-    isGameOver();
-    randPiece();
 }
 
 const isGameOver = () => {
@@ -560,10 +621,26 @@ const isGameOver = () => {
 }
 
 const startInterval = () => {
-    if (round < 10) { interval = 600 }
-    else if (round < 20) { interval = 400 }
-    else if (round < 30) { interval = 200 }
-    else if (round >= 40) { interval = 100 }
+    if (level < 5) { interval = 600 }
+    else if (level < 10) { interval = 560 }
+    else if (level < 15) { interval = 520 }
+    else if (level < 20) { interval = 480 }
+    else if (level < 25) { interval = 440 }
+    else if (level < 30) { interval = 400 }
+    else if (level < 35) { interval = 360 }
+    else if (level < 40) { interval = 320 }
+    else if (level < 45) { interval = 280 }
+    else if (level < 50) { interval = 240 }
+    else if (level < 55) { interval = 220 }
+    else if (level < 60) { interval = 200 }
+    else if (level < 65) { interval = 180 }
+    else if (level < 70) { interval = 160 }
+    else if (level < 75) { interval = 150 }
+    else if (level < 80) { interval = 140 }
+    else if (level < 85) { interval = 130 }
+    else if (level < 90) { interval = 120 }
+    else if (level < 95) { interval = 110 }
+    else { interval = 100 }
     intervalId = window.setInterval(moveDownAutoNew, interval);
 }
 
@@ -575,10 +652,16 @@ const randPiece = (a = Math.floor(Math.random() * 7)) => {
     nextPiece = JSON.parse(JSON.stringify(pieces[a]));
 }
 
+const levelUp = () => {
+    level++;
+    levelDisp.innerText = level;
+}
+
 const clearLine = (filledBoxes) => {
     for (box of filledBoxes) {
         box.classList.remove('filled')
     }
+    levelUp()
 }
 
 const shiftDown = (allFilledBoxes) => {
@@ -696,6 +779,8 @@ keys.addEventListener('keydown', function (e) {
     else if (e.key == "ArrowRight") { moveRightNew() }
     else if (e.key == "ArrowDown") { moveDownNew() }
     else if (e.key == "ArrowUp") { rotatePiece() }
+    else if (e.key == "ArrowUp") { rotatePiece() }
+    else if (e.key.toLowerCase() == "c") { holdPiece() }
     else if (e.key.toLowerCase() == "q") { clearInterval(intervalId) }
 })
 
