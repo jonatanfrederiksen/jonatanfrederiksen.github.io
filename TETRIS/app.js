@@ -398,7 +398,7 @@ let round = 0;
 let level = 0;
 
 const levelDisp = document.querySelector('#level span')
-let gameOver = false;
+let gameOver = true;
 
 // let interval = 0;
 // let currentColor = 'green';
@@ -538,7 +538,10 @@ const holdPiece = () => {
 // automatic functions
 
 const startGame = () => {
-    newPieceNew();
+    if (gameOver) {
+        gameOver = false
+        newPieceNew();
+    }
 }
 
 const newPieceNew = (masterPiece = nextPiece) => {
@@ -804,56 +807,59 @@ startBtn.addEventListener('click', function () { startGame() })
 
 
 
-// hi
 
 
+if (window.innerWidth < 600) {
 
-let touchstartX = 0;
-let touchstartY = 0;
-let touchendX = 0;
-let touchendY = 0;
+    let touchstartX = 0;
+    let touchstartY = 0;
+    let touchendX = 0;
+    let touchendY = 0;
 
-const gestureZone = document.getElementById('game');
+    const gestureZone = document.getElementById('game');
 
-gestureZone.addEventListener('touchstart', function (event) {
-    touchstartX = event.changedTouches[0].screenX;
-    touchstartY = event.changedTouches[0].screenY;
-}, false);
+    gestureZone.addEventListener('touchstart', function (event) {
+        touchstartX = event.changedTouches[0].screenX;
+        touchstartY = event.changedTouches[0].screenY;
+    }, false);
 
-gestureZone.addEventListener('touchend', function (event) {
-    touchendX = event.changedTouches[0].screenX;
-    touchendY = event.changedTouches[0].screenY;
-    handleGesture();
-}, false);
+    gestureZone.addEventListener('touchend', function (event) {
+        touchendX = event.changedTouches[0].screenX;
+        touchendY = event.changedTouches[0].screenY;
+        handleGesture();
+    }, false);
 
-function handleGesture() {
-    if (touchendX <= touchstartX && (Math.abs(touchstartX - touchendX)) >= (Math.abs(touchendY - touchstartY))) {
-        console.log('Swiped left');
-        moveLeftNew();
+    function handleGesture() {
+        if (touchendX <= touchstartX && (Math.abs(touchstartX - touchendX)) > 15 && (Math.abs(touchstartX - touchendX)) >= (Math.abs(touchendY - touchstartY))) {
+            console.log('Swiped left');
+            moveLeftNew();
+            console.log(Math.abs(touchstartX - touchendX))
+        }
+
+        if (touchendX >= touchstartX && (Math.abs(touchstartX - touchendX)) > 15 && (Math.abs(touchstartX - touchendX)) >= (Math.abs(touchendY - touchstartY))) {
+            console.log('Swiped right');
+            moveRightNew();
+        }
+
+        if (touchendY <= touchstartY && (Math.abs(touchendY - touchstartY)) > 15 && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
+            console.log('Swiped up');
+            holdPiece();
+        }
+
+        if (touchendY >= touchstartY && (Math.abs(touchendY - touchstartY)) > 15 && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
+            console.log('Swiped down');
+            moveDownNew();
+        }
+
+        if (touchendY === touchstartY) {
+            console.log('Tap');
+            if (gameOver) { startGame() }
+
+            else { rotatePiece(); }
+        }
     }
 
-    if (touchendX >= touchstartX && (Math.abs(touchstartX - touchendX)) >= (Math.abs(touchendY - touchstartY))) {
-        console.log('Swiped right');
-        moveRightNew();
-    }
-
-    if (touchendY <= touchstartY && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
-        console.log('Swiped up');
-        holdPiece();
-    }
-
-    if (touchendY >= touchstartY && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
-        console.log('Swiped down');
-        moveDownNew();
-    }
-
-    if (touchendY === touchstartY) {
-        console.log('Tap');
-        rotatePiece();
-    }
 }
-
-
 
 
 

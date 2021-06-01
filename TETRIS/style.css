@@ -185,18 +185,16 @@ justify-content: center ;
     }
 
     .box{
-        width: 2vh;
-        height: 2vh;
+        width: 3vh;
+        height: 3vh;
     }
 
     #startBtn{
-        margin-bottom: 2vh;
+        display: none;
     }
 
-    .arrowBtn{
-        height: 5vh;
-        width: 5vh;
-        border-radius: 0.5vh;
+    #arrows{
+        display: none;
     }
 }
 
