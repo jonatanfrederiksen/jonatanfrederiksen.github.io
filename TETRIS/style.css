@@ -5,6 +5,7 @@ body{
     height: 100vh;
     text-align: center;
     justify-content: space-evenly;
+    touch-action: manipulation;
 }
 
 .header{
@@ -171,24 +172,13 @@ justify-content: center ;
     height: 0px;
 }
 
-/* @media (min-width: 1000px){
+
+@media (max-width: 600px) {
+    
     #stats{
         flex-direction: row;
-        width: 25%;
-        justify-content: space-evenly;
+        justify-content: space-evenly;}
 
-
-    }
-    /* .statContainer{
-        margin-left: 5px;
-        margin-right: 5px;
-    } */
-
-} */
-
-@media (max-width: 640px) {
-    .header{
-    }
     
     body {
         flex-direction: column;
@@ -197,6 +187,10 @@ justify-content: center ;
     .box{
         width: 2vh;
         height: 2vh;
+    }
+
+    #startBtn{
+        margin-bottom: 2vh;
     }
 
     .arrowBtn{
