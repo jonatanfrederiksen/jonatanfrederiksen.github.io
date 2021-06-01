@@ -8,26 +8,87 @@
     <title>Tetris</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Shadows+Into+Light&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;1,100&family=Shadows+Into+Light&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, 
      user-scalable=0'>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <div class="header">
-        <h1>TETRIS</h1>
-        <p>let the fun begin</p>
-        <p>release 0.2</p>
-        <button id="startBtn">start</button>
-
-    </div>
-
-
     <div id="game">
-        <div class="row">
+        <div class="header">
+            <h1>TETRIS</h1>
+            <!-- <div id="stats">
+                <div class="statContainer">
+                    <div id="level" class="stat">0</div>
+                    <h2>lvl</h2>
+                </div>
+                <div class="statContainer">
+
+                    <div id="hold" class="stat">
+                        <div class="holdRow">
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                        </div>
+                        <div class="holdRow">
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                        </div>
+                        <div class="holdRow">
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                        </div>
+                        <div class="holdRow">
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                            <div class="holdBox"></div>
+                        </div>
+                    </div>
+                    <h2>hld (c)</h2>
+                </div>
+                <div class="statContainer">
+                    <div id="upNext" class="stat"></div>
+                    <h2>up nxt</h2>
+                </div>
+
+            </div> -->
+        </div>
+        <div id="y-2" class="">
+            <div id="y-2x0" class="hidden gameOverCheck"></div>
+            <div id="y-2x1" class="hidden gameOverCheck"></div>
+            <div id="y-2x2" class="hidden gameOverCheck"></div>
+            <div id="y-2x3" class="hidden gameOverCheck"></div>
+            <div id="y-2x4" class="hidden gameOverCheck"></div>
+            <div id="y-2x5" class="hidden gameOverCheck"></div>
+            <div id="y-2x6" class="hidden gameOverCheck"></div>
+            <div id="y-2x7" class="hidden gameOverCheck"></div>
+            <div id="y-2x8" class="hidden gameOverCheck"></div>
+            <div id="y-2x9" class="hidden gameOverCheck"></div>
+        </div>
+        <div id="y-1" class="">
+            <div id="y-1x0" class="hidden gameOverCheck"></div>
+            <div id="y-1x1" class="hidden gameOverCheck"></div>
+            <div id="y-1x2" class="hidden gameOverCheck"></div>
+            <div id="y-1x3" class="hidden gameOverCheck"></div>
+            <div id="y-1x4" class="hidden gameOverCheck"></div>
+            <div id="y-1x5" class="hidden gameOverCheck"></div>
+            <div id="y-1x6" class="hidden gameOverCheck"></div>
+            <div id="y-1x7" class="hidden gameOverCheck"></div>
+            <div id="y-1x8" class="hidden gameOverCheck"></div>
+            <div id="y-1x9" class="hidden gameOverCheck"></div>
+        </div>
+        <div id="y0" class="">
             <div id="y0x0" class="hidden gameOverCheck"></div>
             <div id="y0x1" class="hidden gameOverCheck"></div>
             <div id="y0x2" class="hidden gameOverCheck"></div>
@@ -39,7 +100,7 @@
             <div id="y0x8" class="hidden gameOverCheck"></div>
             <div id="y0x9" class="hidden gameOverCheck"></div>
         </div>
-        <div class="row">
+        <div id="y1" class="row">
             <div id="y1x0" class="box"></div>
             <div id="y1x1" class="box"></div>
             <div id="y1x2" class="box"></div>
@@ -51,7 +112,7 @@
             <div id="y1x8" class="box"></div>
             <div id="y1x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y2" class="row">
             <div id="y2x0" class="box"></div>
             <div id="y2x1" class="box"></div>
             <div id="y2x2" class="box"></div>
@@ -63,7 +124,7 @@
             <div id="y2x8" class="box"></div>
             <div id="y2x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y3" class="row">
             <div id="y3x0" class="box"></div>
             <div id="y3x1" class="box"></div>
             <div id="y3x2" class="box"></div>
@@ -75,7 +136,7 @@
             <div id="y3x8" class="box"></div>
             <div id="y3x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y4" class="row">
             <div id="y4x0" class="box"></div>
             <div id="y4x1" class="box"></div>
             <div id="y4x2" class="box"></div>
@@ -87,7 +148,7 @@
             <div id="y4x8" class="box"></div>
             <div id="y4x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y5" class="row">
             <div id="y5x0" class="box"></div>
             <div id="y5x1" class="box"></div>
             <div id="y5x2" class="box"></div>
@@ -99,7 +160,7 @@
             <div id="y5x8" class="box"></div>
             <div id="y5x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y6" class="row">
             <div id="y6x0" class="box"></div>
             <div id="y6x1" class="box"></div>
             <div id="y6x2" class="box"></div>
@@ -112,7 +173,7 @@
             <div id="y6x9" class="box"></div>
 
         </div>
-        <div class="row">
+        <div id="y7" class="row">
             <div id="y7x0" class="box"></div>
             <div id="y7x1" class="box"></div>
             <div id="y7x2" class="box"></div>
@@ -124,7 +185,7 @@
             <div id="y7x8" class="box"></div>
             <div id="y7x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y8" class="row">
             <div id="y8x0" class="box"></div>
             <div id="y8x1" class="box"></div>
             <div id="y8x2" class="box"></div>
@@ -137,7 +198,7 @@
             <div id="y8x9" class="box"></div>
 
         </div>
-        <div class="row">
+        <div id="y9" class="row">
             <div id="y9x0" class="box"></div>
             <div id="y9x1" class="box"></div>
             <div id="y9x2" class="box"></div>
@@ -149,7 +210,7 @@
             <div id="y9x8" class="box"></div>
             <div id="y9x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y10" class="row">
             <div id="y10x0" class="box"></div>
             <div id="y10x1" class="box"></div>
             <div id="y10x2" class="box"></div>
@@ -161,7 +222,7 @@
             <div id="y10x8" class="box"></div>
             <div id="y10x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y11" class="row">
             <div id="y11x0" class="box"></div>
             <div id="y11x1" class="box"></div>
             <div id="y11x2" class="box"></div>
@@ -173,7 +234,7 @@
             <div id="y11x8" class="box"></div>
             <div id="y11x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y12" class="row">
             <div id="y12x0" class="box"></div>
             <div id="y12x1" class="box"></div>
             <div id="y12x2" class="box"></div>
@@ -185,7 +246,7 @@
             <div id="y12x8" class="box"></div>
             <div id="y12x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y13" class="row">
             <div id="y13x0" class="box"></div>
             <div id="y13x1" class="box"></div>
             <div id="y13x2" class="box"></div>
@@ -197,7 +258,7 @@
             <div id="y13x8" class="box"></div>
             <div id="y13x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y14" class="row">
             <div id="y14x0" class="box"></div>
             <div id="y14x1" class="box"></div>
             <div id="y14x2" class="box"></div>
@@ -209,7 +270,7 @@
             <div id="y14x8" class="box"></div>
             <div id="y14x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y15" class="row">
             <div id="y15x0" class="box"></div>
             <div id="y15x1" class="box"></div>
             <div id="y15x2" class="box"></div>
@@ -221,7 +282,7 @@
             <div id="y15x8" class="box"></div>
             <div id="y15x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y16" class="row">
             <div id="y16x0" class="box"></div>
             <div id="y16x1" class="box"></div>
             <div id="y16x2" class="box"></div>
@@ -233,7 +294,7 @@
             <div id="y16x8" class="box"></div>
             <div id="y16x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y17" class="row">
             <div id="y17x0" class="box"></div>
             <div id="y17x1" class="box"></div>
             <div id="y17x2" class="box"></div>
@@ -245,7 +306,7 @@
             <div id="y17x8" class="box"></div>
             <div id="y17x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y18" class="row">
             <div id="y18x0" class="box"></div>
             <div id="y18x1" class="box"></div>
             <div id="y18x2" class="box"></div>
@@ -257,7 +318,7 @@
             <div id="y18x8" class="box"></div>
             <div id="y18x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y19" class="row">
             <div id="y19x0" class="box"></div>
             <div id="y19x1" class="box"></div>
             <div id="y19x2" class="box"></div>
@@ -269,7 +330,7 @@
             <div id="y19x8" class="box"></div>
             <div id="y19x9" class="box"></div>
         </div>
-        <div class="row">
+        <div id="y20" class="row">
             <div id="y20x0" class="box"></div>
             <div id="y20x1" class="box"></div>
             <div id="y20x2" class="box"></div>
@@ -284,6 +345,7 @@
     </div>
 
     <div id="controls">
+        <button id="startBtn">start</button>
         <div id="arrows">
             <div>
                 <button id="upBtn" class="arrowBtn">&#8593; </button>

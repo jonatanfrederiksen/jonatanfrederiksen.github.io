@@ -9,16 +9,91 @@ body{
 
 .header{
     align-self: center;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    color: white;
 }
 
 h1{
     font-family: 'Shadows Into Light', cursive;
     font-size: 40px;
+}
+
+#stats{
+    display: flex;
+    justify-content: space-around;
+}
+
+.statContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+
+h2{
+    font-size: 13px;
+    font-family: 'Roboto Mono', monospace;
+    text-transform: uppercase;
+}
+
+.stat{
+    width: 50px;
+    height: 50px;
+    background: black;
+    border-radius: 7px;
+    color: white;
+    border: 1px solid white;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#level{
+text-align: center;
+vertical-align: middle;
+}
+
+#hold{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    overflow: hidden;
+}
+
+.holdRow{  
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+}
+
+.holdBox{
+    width: 25%;
+}
+
+
+.row{
 
 }
-p{
-    font-family: 'Open Sans', sans-serif;
+
+
+
+.box{
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    margin: 0;
+}
+
+
+
+
+
+
+
+#startBtn{
+    padding: 7px 14px;
+    margin-bottom: 40px;
 }
 
 
@@ -27,7 +102,8 @@ p{
     display: flex;
     flex-direction: column;
     border: 20px solid black;
-    border-radius: 10px;
+    box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.51)    ;
+    border-radius: 10px 50px 20px 40px;
 }
 
 #controls {
@@ -39,15 +115,15 @@ p{
     flex-direction: row;
 }
 
-.box + .hidden {
+/* .box + .hidden {
     background-color: whitesmoke;
-}
+} */
 
 .box{
     height: 20px;
     width: 20px;
     background-color: black;
-    margin: 1px;
+    margin: 0;
 }
 
 .active {
@@ -55,7 +131,7 @@ p{
 }
 
 .filled{
-    background-color: red;
+    background-color: rgb(255, 255, 255);
 }
 
 .arrowBtn{
