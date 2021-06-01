@@ -808,48 +808,50 @@ startBtn.addEventListener('click', function () { startGame() })
 
 
 
-var touchstartX = 0;
-var touchstartY = 0;
-var touchendX = 0;
-var touchendY = 0;
+let touchstartX = 0;
+let touchstartY = 0;
+let touchendX = 0;
+let touchendY = 0;
 
-var gesuredZone = document.getElementById('game');
+const gestureZone = document.getElementById('game');
 
-gesuredZone.addEventListener('touchstart', function (e) {
-    touchstartX = e.changedTouches[0].screenX;
-    touchstartY = e.changedTouches[0].screenY;
+gestureZone.addEventListener('touchstart', function (event) {
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
 }, false);
 
-gesuredZone.addEventListener('touchend', function (e) {
-    touchendX = e.changedTouches[0].screenX;
-    touchendY = e.changedTouches[0].screenY;
-    handleGesure();
+gestureZone.addEventListener('touchend', function (event) {
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    handleGesture();
 }, false);
 
-function handleGesure() {
-    var swiped = 'swiped: ';
-    if (touchendX < touchstartX) {
-        alert(swiped + 'left!');
+function handleGesture() {
+    if (touchendX <= touchstartX && (Math.abs(touchstartX - touchendX)) >= (Math.abs(touchendY - touchstartY))) {
+        console.log('Swiped left');
+        moveLeftNew();
     }
-    if (touchendX > touchstartX) {
-        alert(swiped + 'right!');
+
+    if (touchendX >= touchstartX && (Math.abs(touchstartX - touchendX)) >= (Math.abs(touchendY - touchstartY))) {
+        console.log('Swiped right');
+        moveRightNew();
     }
-    if (touchendY < touchstartY) {
-        alert(swiped + 'down!');
+
+    if (touchendY <= touchstartY && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
+        console.log('Swiped up');
+        holdPiece();
     }
-    if (touchendY > touchstartY) {
-        alert(swiped + 'up!');
+
+    if (touchendY >= touchstartY && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
+        console.log('Swiped down');
+        moveDownNew();
     }
-    if (touchendY == touchstartY) {
-        alert('tap!');
+
+    if (touchendY === touchstartY) {
+        console.log('Tap');
+        rotatePiece();
     }
 }
-
-
-
-
-
-
 
 
 
