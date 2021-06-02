@@ -425,6 +425,42 @@ const moveDownNew = () => {
     }
 }
 
+const moveDownComplete = () => {
+    let movesToMake = "";
+    let possibleMoves = [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+    let foundMove = false;
+    while (!foundMove) {
+        thisMove = possibleMoves.shift();
+        let possible = true;
+        for (box of activePos[activeRotationCount]) {
+            if ((parseInt(box.y) + thisMove) > 20) {
+                possible = false;
+            }
+            else if (document.querySelector(`#y${parseInt(this.box.y) + thisMove}x${this.box.x}`).classList.contains('filled')) {
+                possible = false;
+            }
+            else { console.log(`${thisMove} might be possible`) }
+        }
+        if (possible) {
+            movesToMake = thisMove;
+            foundMove = true;
+        }
+
+    } console.log(` ${movesToMake} IS POSSIBLE`)
+
+    for (piece of activePos) {
+        for (box of piece) {
+            this.box.y = (parseInt(this.box.y) + movesToMake).toString();
+        }
+    }
+    printOnScreen()
+    newPieceNew()
+}
+
+
+
+
+
 const rotatePiece = () => {
     let validate = true;
     let runForOne = true;
@@ -877,7 +913,7 @@ let handleGesture = () => {
 
     if (swipeControl == true && touchendY >= touchstartY && (Math.abs(touchendY - touchstartY)) > 15 && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
         console.log('Swiped down');
-        moveDownNew();
+        moveDownComplete();
     }
 
     if (swipeControl == true && touchendY === touchstartY) {
@@ -926,6 +962,7 @@ keys.addEventListener('keydown', function (e) {
     else if (e.key == "ArrowDown") { moveDownNew() }
     else if (e.key == "ArrowUp") { rotatePiece() }
     else if (e.key == "ArrowUp") { rotatePiece() }
+    else if (e.code.toLowerCase() == "space") { moveDownComplete() }
     else if (e.key.toLowerCase() == "c") { holdPiece() }
     else if (e.key.toLowerCase() == "q") { clearInterval(intervalId) }
 })
@@ -941,6 +978,9 @@ downBtn.addEventListener('click', function () { moveDownNew() });
 
 const rightBtn = document.querySelector('#rightBtn');
 rightBtn.addEventListener('click', moveRightNew);
+
+const spaceBtn = document.querySelector('#spaceBtn');
+spaceBtn.addEventListener('click', moveDownComplete);
 
 const startBtn = document.querySelector('#startBtn');
 startBtn.addEventListener('click', function () { startGame() });
