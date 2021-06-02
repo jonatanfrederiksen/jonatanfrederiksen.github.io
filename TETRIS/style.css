@@ -5,6 +5,7 @@ body{
     height: 100vh;
     text-align: center;
     justify-content: space-evenly;
+    touch-action: none;
 }
 
 .header{
@@ -230,7 +231,6 @@ h2{
 
     body {
         flex-direction: column;
-        touch-action: none;
     }
 
     .box{
