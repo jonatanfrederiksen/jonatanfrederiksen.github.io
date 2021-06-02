@@ -927,7 +927,7 @@ let handleGesture = () => {
 
     if (swipeControl == true && touchendY <= touchstartY && (Math.abs(touchendY - touchstartY)) > 15 && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
         console.log('Swiped up');
-        holdPiece();
+        rotatePiece();
     }
 
     if (swipeControl == true && touchendY >= touchstartY && (Math.abs(touchendY - touchstartY)) > 15 && (Math.abs(touchstartX - touchendX)) <= (Math.abs(touchendY - touchstartY))) {
@@ -938,7 +938,7 @@ let handleGesture = () => {
     if (swipeControl == true && touchendY === touchstartY) {
         console.log('Tap');
         if (gameOver) { startGame() }
-        else { rotatePiece(); }
+        else { holdPiece(); }
     }
 }
 
