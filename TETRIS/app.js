@@ -392,6 +392,7 @@ let pieceToHold = {};
 let heldPiece = {};
 let firstHold = true;
 let allowHold = true;
+let produceNew = true;
 
 let intervalId = "";
 let round = 0;
@@ -439,27 +440,23 @@ const moveDownComplete = () => {
             else if (document.querySelector(`#y${parseInt(this.box.y) + thisMove}x${this.box.x}`).classList.contains('filled')) {
                 possible = false;
             }
-            else { console.log(`${thisMove} might be possible`) }
         }
         if (possible) {
             movesToMake = thisMove;
             foundMove = true;
         }
-
-    } console.log(` ${movesToMake} IS POSSIBLE`)
+    }
 
     for (piece of activePos) {
         for (box of piece) {
             this.box.y = (parseInt(this.box.y) + movesToMake).toString();
         }
     }
+
     printOnScreen()
+    produceNew = true;
     newPieceNew()
 }
-
-
-
-
 
 const rotatePiece = () => {
     let validate = true;
@@ -549,6 +546,8 @@ const holdPiece = () => {
         }
         pieceToHold = JSON.parse(JSON.stringify(currentPiece));
         document.querySelector('#hold').style.backgroundImage = pieceToHold.img;
+
+        produceNew = false;
         if (!firstHold) {
             newPieceNew(heldPiece)
 
@@ -563,13 +562,6 @@ const holdPiece = () => {
 
     }
 }
-
-
-
-
-
-// }
-
 
 
 // automatic functions
@@ -632,26 +624,35 @@ const resetGame = () => {
 }
 
 const newPieceNew = (masterPiece = nextPiece) => {
-    solidifyPiecesNew()
-    isGameOver();
+    if (produceNew) {
+        solidifyPiecesNew()
+        isGameOver();
+    }
+    else {
+        quitInterval();
+        activePos = [];
+    }
     if (!gameOver) {
-        activeRotationCount = 0;
         for (piece of masterPiece.position) {
             activePos.push(piece)
         }
+        activeRotationCount = Math.floor(Math.random() * (activePos.length));
+
         currentColor = masterPiece.color;
     }
     round++;
     currentPiece = JSON.parse(JSON.stringify(nextPiece));
-    if (allowHold) { randPiece(); }
-    displayUpNext();
+    if (produceNew || firstHold) {
+        randPiece();
+        displayUpNext();
+    }
+
     startInterval()
 }
 
 const displayUpNext = () => {
     document.querySelector('#upNext').style.backgroundImage = nextPiece.img
 }
-
 
 const printOnScreen = (pieces = activePos) => {
     let removeFrom = document.querySelectorAll('.active')
@@ -696,6 +697,7 @@ const solidifyPiecesNew = () => {
     quitInterval();
     activePos = [];
     allowHold = true;
+    produceNew = true;
     clearLines();
 }
 
@@ -774,22 +776,39 @@ const clearLines = () => {
     let linesToShiftDown = []
 
     for (let a = 0; a < 20; a++) {
-        let activeRow = rowsArr.shift()
-        let filledBoxes = document.querySelectorAll(`#${activeRow} .filled`);
 
-        if (filledBoxes.length >= 10) {
-            linesToShiftDown.unshift(activeRow);
-            clearLine(filledBoxes);
+        let activeRow = rowsArr.shift();
+        while (document.querySelectorAll(`#${activeRow} .filled`).length >= 10) {
 
-            let allFilledBoxes = [];
-            for (row of rowsArr) {
-                let lineOfFilledBoxes = (document.querySelectorAll(`#${row} .filled`));
-                for (box of lineOfFilledBoxes) {
-                    allFilledBoxes.push(box)
+            console.log(`now searching line: ${activeRow}`);
+            let filledBoxes = document.querySelectorAll(`#${activeRow} .filled`);
+            console.log(`row ${activeRow} contains: `);
+            console.log(filledBoxes);
+
+            console.log(`we still have to check these rows:`);
+            console.log(rowsArr);
+
+            if (filledBoxes.length >= 10) {
+                console.log(`omg.. row${activeRow} contains 10 or more filled boxes, lets save it so we can get rid of it `);
+                linesToShiftDown.unshift(activeRow);
+                console.log(`now we have saved these rows:`);
+                console.log(linesToShiftDown);
+
+                clearLine(filledBoxes);
+                console.log(`row removed`);
+
+                let allFilledBoxes = [];
+                for (row of rowsArr) {
+                    let lineOfFilledBoxes = (document.querySelectorAll(`#${row} .filled`));
+                    for (box of lineOfFilledBoxes) {
+                        allFilledBoxes.push(box);
+                    }
                 }
+                shiftDown(allFilledBoxes);
             }
-            shiftDown(allFilledBoxes);
         }
+
+
 
     }
 }

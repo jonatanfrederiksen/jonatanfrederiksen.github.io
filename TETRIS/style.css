@@ -126,6 +126,8 @@ h2{
     flex-direction: row;
     justify-content: center ;
     background-color: rgb(88, 0, 0);
+    font-size: 12px;
+
 }
 
 #startBtn span{
