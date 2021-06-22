@@ -619,6 +619,8 @@ const resetGame = () => {
     let level = 0;
     levelDisp.innerText = level;
     let activeRotationCount = "";
+    gameOverScreen();
+
 
 
 }
@@ -708,6 +710,7 @@ const isGameOver = () => {
             gameOver = true;
             console.log('game is over');
             document.querySelector('#startBtn span').innerText = "reset"
+            gameOverScreen();
             throw new Error("dude u game is done");
         }
     }
@@ -813,6 +816,33 @@ const clearLines = () => {
     }
 }
 
+
+let showcount = 0;
+let gameOverBoxes = document.querySelectorAll('.gameOverView');
+
+const showGameOver = () => {
+    if (gameOverBoxes.length > showcount) {
+        gameOverBoxes[showcount].classList.toggle('gameOverLetters')
+        showcount++;
+    } else {
+        clearInterval(gameOverInterval)
+        showcount = 0;
+    }
+}
+
+const gameOverScreen = () => {
+    gameOverInterval = window.setInterval(showGameOver, 10);
+}
+
+
+
+
+
+
+
+
+
+// intervalId = window.setInterval(moveDownAutoNew, 1000);
 
 
 
@@ -983,7 +1013,6 @@ keys.addEventListener('keydown', function (e) {
     else if (e.key == "ArrowUp") { rotatePiece() }
     else if (e.code.toLowerCase() == "space") { moveDownComplete() }
     else if (e.key.toLowerCase() == "c") { holdPiece() }
-    else if (e.key.toLowerCase() == "q") { clearInterval(intervalId) }
 })
 
 const upBtn = document.querySelector('#upBtn');
@@ -1008,6 +1037,14 @@ startBtn.addEventListener('click', function () { startGame() });
 toggleBtn.addEventListener('click', toggleSwipeControls);
 
 
+const toggleRed = (a) => {
+    a.classList.toggle('gameOverView')
+};
+
+const boxes = document.querySelectorAll('.box');
+for (box of boxes) {
+    box.addEventListener('click', () => { toggleRed(box) })
+}
 
 
 
