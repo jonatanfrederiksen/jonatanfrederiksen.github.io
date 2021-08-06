@@ -1,0 +1,178 @@
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+
+body{
+    font-family: 'Space Mono', monospace;
+    background-color: hsl(185, 41%, 84%);
+    text-align: center;
+    margin: 0;
+}
+
+img{
+    margin: 40px;
+}
+
+#outerBox {
+    text-align: justify;
+    padding: 30px;
+    width: 100vw;
+    border-radius: 20px;
+    background-color: hsl(50, 0%, 100%);
+    box-sizing: border-box;
+}
+
+.labelclass{
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: hsl(186, 14%, 43%);
+    margin: 5px 0;
+}
+
+.numInput{
+    width: 96%;
+    border-radius: 5px;
+    height: 2rem;
+    border: none;
+    background-color: 
+    font-size: 1.4rem;
+    font-family: inherit;
+    text-align: end;
+    font-weight: 700;
+    padding: 8px;
+    font-size: 1.3rem;
+    color: hsl(183, 100%, 15%);
+    background: hsl(189, 41%, 97%); 
+    margin-bottom: 2rem;
+}
+
+.numInput:focus{
+    outline: none;    
+}
+
+label{
+    position: relative;
+    
+}
+
+label:before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+}
+
+#billInput:before{
+    background: url(images/icon-dollar.svg) no-repeat left center ; 
+
+}
+
+#peopleInput:before{
+    background: url(images/icon-person.svg) no-repeat left center ; 
+
+}
+
+#tipRange{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    min-height: 11rem;
+    margin-bottom: 2rem;
+}
+
+button{
+    width: 9rem;
+    height: 3rem;
+    border: none;
+    border-radius: 0.3rem;
+    font-family: inherit;
+    font-size: 1.3rem;
+    font-weight: 700;
+
+}
+
+.amountBtn{
+    background-color: hsl(183, 100%, 15%);
+    color: white;
+}
+
+.amountBtn .amtBtnClicked{
+    background: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
+
+#customBtn{
+    background-color: hsl(189, 41%, 97%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.boxinput{
+    height: 40px;
+    width: 100%;
+
+
+#tipBtns{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+
+}
+
+#tipBtns button{
+    height: 40px;
+    width: 140px;
+    margin: 5px;
+    background-color: hsl(183, 100%, 15%);
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    font-family: inherit;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 5px;
+
+}
+
+#calcbox{
+    background-color: hsl(183, 100%, 15%);
+    border-radius: 20px;
+    height: 100px;
+    margin-top: 20px;
+}
+
+
+colors{
+    /* - Strong cyan:  */
+    color: hsl(172, 67%, 45%);
+    /* - Very dark cyan:  */
+    color: hsl(183, 100%, 15%);
+    /* - Dark grayish cyan:  */
+    color: hsl(186, 14%, 43%);
+    /* - Dark grayish cyan:  */
+    color: hsl(184, 14%, 56%);
+    /* - Light grayish cyan:  */
+    color: hsl(185, 41%, 84%);
+    /* - Light grayish cyan:  */
+    color: hsl(189, 41%, 97%);
+    /* - White:  */
+    color: hsl(0, 0%, 100%);
+}

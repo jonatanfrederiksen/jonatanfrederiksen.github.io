@@ -1,0 +1,58 @@
+<div id="  " class="image_sections">
+    <img src="images/slider.jpg" alt="">
+</div>
+<div class="sections">
+    <div>
+        <h2>Velkommen til Vedsted Gulvservice</h2>
+        <h2>- din profestionelle gulvpartner</h2>
+        <p>har du brug for at få flottere gulve? Så kan vi hjælpe dig. </p>
+        <p>Vi kan det hele: Rive gulve op, lægge nye, isolere, slibe, og selvfølgelig </p>
+        <p>behandle dem med de bedste produkter</p>
+        <p>Bare spørg - så finder vi løsningen</p>
+    </div>
+    <div id="product_images">
+        <div class="round_images">
+            <img src="images/behandling.png" alt="">
+            <h3>Gulvslibning & Behandling</h3>
+        </div>
+        <div class="round_images">
+            <img src="images/vaadrum.png" alt="">
+            <h3>Gulvvådrum</h3>
+        </div>
+        <div class="round_images">
+            <img src="images/linoleum.png" alt="">
+            <h3>Linoleum, vinyl & tæpper</h3>
+        </div>
+        <div class="round_images">
+            <img src="images/traegulve.png" alt="">
+            <h3>Trægulv</h3>
+        </div>
+    </div>
+</div>
+<div id="section3" class="image_sections">
+
+    <div>
+        <div>
+            <h3>Vi rådgiver gerne</h3>
+            <p>Er du i tvivl om hvad den rigtige løsning er for dig? Så hjælper vi gerne med at finde svaret.
+                Lad os aftale et møde og se på det sammen - så kan vi hurtigt fortælle, om du har brug for et
+                helt nyt gulv - eller om det kan klares med en omgang slibning og behandling.</p>
+            <p>Ping eller skriv - så skal vi nok hjælpe dig godt videre</p>
+        </div>
+        <div>
+            <h3>Vi har erfaringen</h3>
+            <p>Hos Vedsted Gulvservice har vi i generationer leveret flotte gulvløsninger til sjællandske
+                familier, organisationer og virksomheder.</p>
+            <p>Så har du et behov, så tøv ikke - tag fat i os, så finder vi den løsning der er den helt rigtige
+                for dig.</p>
+        </div>
+    </div>
+    <div class="ref_logos">
+        <img src="images/junckers.png" alt="">
+        <img src="images/byg-garanti.png" alt="">
+        <img src="images/gulvbranchen.png" alt="">
+    </div>
+</div>
+<div class="sections">
+
+</div>
